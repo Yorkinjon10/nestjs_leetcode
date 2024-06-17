@@ -1,0 +1,1 @@
+// mongodb+srv://abdukhalilovyorkinjon2025:<password>@cluster0.edrvw4g.mongodb.net/
