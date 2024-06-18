@@ -8,9 +8,7 @@ import { UserService } from './users/users.service';
 // mongodb+srv://username:password@cluster0.mongodb.net/myDatabase?retryWrites=true&w=majority
 @Module({
   imports: [ 
-    MongooseModule.forRoot('mongodb://abdukhalilovyorkinjon2025:9Sw-6jfE$aGh$G4@cluster0.edrvw4g.mongodb.net/', { 
-      dbName: 'nestjs_leetcode'
-    }),
+    MongooseModule.forRoot('mongodb://nestjs_admin:TwwT9q9k$@PP$H$@cluster0.edrvw4g.mongodb.net/nestjs_leetcode?retryWrites=true&w=majority', {}),
     MongooseModule.forFeature([{ name: 'Users', schema: UserSchema }]),
   ],
   controllers: [AppController, UserController], 
