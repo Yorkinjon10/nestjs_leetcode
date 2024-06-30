@@ -1,17 +1,30 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UserController } from './users/users.controller';
-import { MongooseModule } from '@nestjs/mongoose';
-import { UserSchema } from './schemas/users.schema';
-import { UserService } from './users/users.service';
-// mongodb+srv://username:password@cluster0.mongodb.net/myDatabase?retryWrites=true&w=majority
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common'
+import { ConfigModule, ConfigService } from '@nestjs/config'
+import { MongooseModule } from '@nestjs/mongoose'
+
+import configuration from './config'
+import { LoggerMiddleware } from './middleware/request-logger'
+
 @Module({
-  imports: [ 
-    MongooseModule.forRoot('mongodb://nestjs_admin:TwwT9q9k$@PP$H$@cluster0.edrvw4g.mongodb.net/nestjs_leetcode?retryWrites=true&w=majority', {}),
-    MongooseModule.forFeature([{ name: 'Users', schema: UserSchema }]),
+  imports: [
+    ConfigModule.forRoot(configuration),
+    MongooseModule.forRootAsync({
+      imports: [ConfigModule],
+      useFactory: async (config: ConfigService) => ({
+        uri: config.get('database.uri'),
+        user: config.get('database.user'),
+        pass: config.get('database.password'),
+        dbName: config.get('database.name'),
+      }),
+      inject: [ConfigService],
+    }),
   ],
-  controllers: [AppController, UserController], 
-  providers: [AppService, UserService],
-}) 
-export class AppModule {}
+  controllers: [],
+  providers: [
+  ],
+})
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*')
+  }
+}
