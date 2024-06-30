@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose'
 
 import configuration from './config'
 import { LoggerMiddleware } from './middleware/request-logger'
+import { UsersModule } from './api/users/users.module'
 
 @Module({
   imports: [
@@ -18,10 +19,10 @@ import { LoggerMiddleware } from './middleware/request-logger'
       }),
       inject: [ConfigService],
     }),
+    UsersModule
   ],
   controllers: [],
-  providers: [
-  ],
+  providers: [],
 })
 export class AppModule implements NestModule {
   configure(consumer: MiddlewareConsumer) {

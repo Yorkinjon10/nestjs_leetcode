@@ -1,6 +1,3 @@
-
-import { withBaseResponse } from '../utils/base-response';
-
 export const RESPONSE_DTO_KEY = 'api_response_dto';
 
 export function ResponseDTO(
