@@ -1,8 +1,11 @@
-import { Expose } from "class-transformer"
-import { IsOptional, IsString } from "class-validator"
+import { Expose, Transform } from "class-transformer"
 import { Types } from "mongoose"
 
 export class UserResponseDTO {
+   @Expose()
+   @Transform((param) => param.obj._id)
+   _id: string
+
    @Expose()
    first_name: string
 

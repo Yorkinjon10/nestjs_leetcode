@@ -731,7 +731,7 @@
     webpack "5.90.1"
     webpack-node-externals "3.0.0"
 
-"@nestjs/common@^10.0.0", "@nestjs/common@^8.0.0 || ^9.0.0 || ^10.0.0", "@nestjs/common@^9.0.0 || ^10.0.0":
+"@nestjs/common@^10.0.0", "@nestjs/common@^10.2.7", "@nestjs/common@^8.0.0 || ^9.0.0 || ^10.0.0", "@nestjs/common@^9.0.0 || ^10.0.0":
   version "10.3.9"
   resolved "https://registry.npmjs.org/@nestjs/common/-/common-10.3.9.tgz"
   integrity sha512-JAQONPagMa+sy/fcIqh/Hn3rkYQ9pQM51vXCFNOM5ujefxUVqn3gwFRMN8Y1+MxdUHipV+8daEj2jEm0IqJzOA==
@@ -3992,7 +3992,7 @@ mongodb@6.6.2:
     bson "^6.7.0"
     mongodb-connection-string-url "^3.0.0"
 
-"mongoose@^6.0.2 || ^7.0.0 || ^8.0.0", mongoose@^8.4.4:
+"mongoose@^6.0.2 || ^7.0.0 || ^8.0.0", mongoose@^8.0.4, mongoose@^8.4.4:
   version "8.4.4"
   resolved "https://registry.npmjs.org/mongoose/-/mongoose-8.4.4.tgz"
   integrity sha512-Nya808odIJoHP4JuJKbWA2eIaerXieu59kE8pQlvJpUBoSKWUyhLji0g1WMVaYXWmzPYXP2Jd6XdR4KJE8RELw==
@@ -4099,6 +4099,15 @@ neo-async@^2.6.2:
   version "2.6.2"
   resolved "https://registry.npmjs.org/neo-async/-/neo-async-2.6.2.tgz"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
+
+nestjs-object-id@^1.2.1:
+  version "1.2.1"
+  resolved "https://registry.npmjs.org/nestjs-object-id/-/nestjs-object-id-1.2.1.tgz"
+  integrity sha512-2o2lP0ymisDgcDG6dATFCaVk8H1IoqS+Vby6gh+yihVwYD5Q6SHE2+6dPmPdRWZArZq4f0mX9bb167ayNMAT9Q==
+  dependencies:
+    "@nestjs/common" "^10.2.7"
+    class-validator "^0.14.1"
+    mongoose "^8.0.4"
 
 node-abort-controller@^3.0.1:
   version "3.1.1"

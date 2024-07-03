@@ -17,6 +17,7 @@ export class UserCreateDTO {
    @IsString()
    chat_id: string
 
+   @IsOptional()
    @ValidateNested({ each: true })
-   groups: Types.ObjectId[] 
+   groups?: Types.ObjectId[] 
 }

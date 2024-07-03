@@ -21,7 +21,7 @@ export class UsersService {
       const feature = await this.usersModel.findById(id)
 
       if(!feature) {
-         throw new NotFoundException("Group not found")
+         throw new NotFoundException("User not found")
       }
 
       return feature
